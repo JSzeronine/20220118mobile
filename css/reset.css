@@ -1,0 +1,43 @@
+@charset "utf-8";
+/************************************************************************
+ * 파일명 :reset.css
+ * 설명 :레이아웃_공통
+ * 작성자 :plus-X JMR
+ * 작성일 :2019.03.01
+ * 최종수정일 :2019.03.01
+************************************************************************/
+
+/* reset ******************************************************/
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box; color: #222222; }
+html{-ms-touch-action:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;outline:none}
+html{height:100%}
+header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption{display:block}
+body,p,h1,h2,h3,h4,h5,h6,em,ul,ol,li,dl,dt,dd,div,table,th,td,form,fieldset,legend,input,textarea,button,select,label,iframe,pre,code,blockquote,video,audio,object,img,canvas,address,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,object{margin:0;padding:0}
+/*body{font-family:apple sd gothic neo,Apple SD Gothid Neo,'apple sd gothic neo','Apple SD Gothid Neo',YDVBlackFit,'YDVBlackFit',notosans,sans-serif;-webkit-text-size-adjust:none;font-weight:400}*/
+
+/*body{font-family:YDVBlackFit,'YDVBlackFit';}*/
+body{font-family:NotoSans,'NotoSans';}
+
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:inherit}
+hr,legend{display:none}
+ul,ol,li,dl,dt,dd{list-style:none}
+table{width:100%;margin:0;padding:0;border:none;border-collapse:collapse;border-spacing:0}
+tr,th,td{border:none;-webkit-box-orient:vertical}
+caption{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+input[type=text],input[type=password],input[type=button],input[type=number],input[type=tel],input[type=email],textarea,select{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-ms-border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-moz-appearance:none;-o-appearance:none;-ms-appearance:none;-webkit-appearance:none;border:none;background-color:transparent;outline:none}
+input,textarea,select,button{font-family:inherit;font-size:inherit;font-weight:inherit;vertical-align:middle}
+button{overflow:visible;border:none;background-color:transparent;cursor:pointer;-webkit-appearance:none;text-decoration:none;outline:none}
+button::-moz-focus-inner{padding:0;border:none}
+button,a,a:hover,a:active,a:focus{text-decoration:none;outline:none}
+em{font-style:normal}
+img{vertical-align:top; width: 100%; }
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+.clearfix{clear:both}
+.fl{float:left}
+.fr{float:right}
+.mximg{width:100%;max-width:100%;height:auto}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
