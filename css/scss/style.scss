@@ -400,118 +400,124 @@
       }
     }
   }
+}
 
-  .comp-footer{
-    .footer-bx{
-      width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      padding: 50px 0;
-      box-sizing: border-box;
 
-      h2{
-        font-size: 14px;
-        font-weight: 700;
-        color: #202020;
-        margin-bottom: 12px;
-      }
+.comp-footer{
+  .footer-bx{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 50px 0;
+    box-sizing: border-box;
 
-      .footer-ceo{
-        font-size: 13px;
-        color: #666;
-      }
+    h2{
+      font-size: 14px;
+      font-weight: 700;
+      color: #202020;
+      margin-bottom: 12px;
+    }
 
-      .footer-address{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 16px;
-        .footer-address__info0{
-          margin-right:25px;
-          p{
-            font-size: 13px;
-            color: #666;
-            a{
-              border-bottom: 1px solid #666;
-            }
-          }
-        }
+    .footer-ceo{
+      font-size: 13px;
+      color: #666;
+    }
 
-        .footer-address__info1{
-          p{
-            font-size: 13px;
-            color: #666;
-            a{
-              font-size: 13px;
-              color: #666;
-            }
+    .footer-address{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 16px;
+      .footer-address__info0{
+        margin-right:25px;
+        p{
+          font-size: 13px;
+          color: #666;
+          a{
+            border-bottom: 1px solid #666;
           }
         }
       }
 
-      .footer-info{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        .footer-info__link{
-          margin-right: 20px;
-          font-size: 0;
+      .footer-address__info1{
+        p{
+          font-size: 13px;
+          color: #666;
           a{
             font-size: 13px;
-            font-weight: 700;
             color: #666;
-
-            &:after{
-              content: '';
-              display: inline-block;
-              width: 1px;
-              height: 10px;
-              background-color: #666;
-              margin: 0 7px;
-            }
-
-            &:last-child{
-              &:after{
-                display: none;
-              }
-            }
           }
-        }
-
-        .footer-info__ltd{
-          font-size: 12px;
-          color: #8f8f8f;
-
-        }
-      }
-
-      .footer-btn{
-        position: absolute;
-        right: 0;
-        bottom: 50px;
-        a{
-          display: inline-block;
-          width: 126px;
-
-        }
-      }
-
-      .footer-btn-up{
-        a{
-          display: inline-block;
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          top: 50px;
-          right: 0;
         }
       }
     }
+
+    .footer-info{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .footer-info__link{
+        margin-right: 20px;
+        font-size: 0;
+        a{
+          font-size: 13px;
+          font-weight: 700;
+          color: #666;
+
+          &:after{
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 10px;
+            background-color: #666;
+            margin: 0 7px;
+          }
+
+          &:last-child{
+            &:after{
+              display: none;
+            }
+          }
+        }
+      }
+
+      .footer-info__ltd{
+        font-size: 12px;
+        color: #8f8f8f;
+
+      }
+    }
+
+    .footer-btn{
+      position: absolute;
+      right: 0;
+      bottom: 50px;
+      a{
+        display: inline-block;
+        width: 126px;
+
+      }
+    }
+
+    .footer-btn-up{
+      a{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50px;
+        right: 0;
+      }
+    }
   }
-
-
 }
 
 
 
 
+
+
+iframe{
+  width: 420px;
+  height: 100vh;
+  overflow: hidden;
+}
