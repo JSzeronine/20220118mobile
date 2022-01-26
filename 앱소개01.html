@@ -42,57 +42,121 @@
     <script src="js/lib/jquery-1.11.2.min.js"></script>
     <script src="js/lib/swiper.min.js"></script>
     <script src="js/lib/intersection-observer.js"></script>
+
+    <script>
+        $( document ).ready( function(){
+            var swiper = new Swiper(".visual-swiper", {
+                loop : true,
+                autoplay: {
+                    delay: 2500,
+                }
+            });
+
+            var replySwiper = new Swiper( ".section-reply-swiper", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".reply-pagination",
+                    clickable: true,
+                },
+            });
+
+            var replySwiper = new Swiper( ".skill-content-swiper", {
+            });
+
+        })
+    </script>
 </head>
 <body>
 
-    <div class="wrap stores">
+    <div class="wrap introduce">
         <div class="comp-header">
             <div class="header-bx">
-                <div class="header-back">
+                <div class="logo">
                     <a href="javascript:;">
-                        <img src="img/stores/ic_arrow_left_black.png" alt="">
+                        <img src="./img/introduce/logo.png" alt="">
                     </a>
                 </div>
-                <div class="header-title">
-                    입점신청 - 회원확인
-                </div>
-                <div class="header-home">
-                    <a href="javascript:;">
-                        <img src="img/stores/btn_home.png" alt="">
-                    </a>
+
+                <div class="comp-btn__default">
+                    <a href="javascript:;">평생무료 시작하기</a>
                 </div>
             </div>
         </div>
 
-        <div class="comp-content">
-            <div class="content-bx">
-                <div class="content-header">
-                    <div class="content-logo">
-                        <img src="img/stores/logo_big.png" alt="">
-                    </div>
-
-                    <div class="content-list">
-                        <ul>
-                            <li class="on on-line">
-                                <span><span>1</span></span>
-                            </li>
-                            <li class="on">
-                                <span><span>2</span></span>
-                            </li>
-                            <li>
-                                <span><span>3</span></span>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="more-content">
+            <div class="more-bx">
+                <div class="intro-bx">
+                    <p><img src="./img/introduce/ic_01.png" alt=""></p>
+                    <h2>
+                        애견 미용샵에<br>
+                        꼭 필요한 다양한 서비스 소개
+                    </h2>
                 </div>
 
-                <div class="content-info">
-                    <div class="content-info-bx">
+                <div class="more-list">
+                    <div class="more-list-bx">
+                        <div class="more-list__info">
+                            <h3>스마트한 예약관리</h3>
+                            <dl>
+                                <dt>단 2번의 클릭으로 예약접수 완료</dt>
+                                <dd>
+                                    지난 미용이력 / 메모 확인 후<br>
+                                    예약 시간 선택-등록하면 끝!
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="more-list__phone">
+                            <ul>
+                                <li><img src="./img/introduce/img_phone00.png" alt=""></li>
+                                <li><img src="./img/introduce/img_phone00.png" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="more-list-bx reverse">
+                        <div class="more-list__info">
+                            <h3>스마트한 예약관리</h3>
+                            <dl>
+                                <dt>단 2번의 클릭으로 예약접수 완료</dt>
+                                <dd>
+                                    지난 미용이력 / 메모 확인 후<br>
+                                    예약 시간 선택-등록하면 끝!
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="more-list__phone">
+                            <ul>
+                                <li><img src="./img/introduce/img_phone00.png" alt=""></li>
+                                <li><img src="./img/introduce/img_phone00.png" alt=""></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
+
+            <div class="more-begin">
+                <div class="more-begin-bx">
+                    <p><img src="./img/introduce/ic_dog03.png" alt=""></p>
+                    <dl>
+                        <dt>다양한 서비스를 다 설명드릴 수가 없네요…</dt>
+                        <dd>
+                            지금 입점신청 하시고<br>
+                            경험해 보시는게 가장 좋습니다.
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="more-begin-input">
+                    <div class="input-default">
+                        <input type="text" placeholder="사용하실 이메일을 입력해주세요">
+                        <div class="comp-btn__default comp-btn__default--bora">
+                            <a href="javascript:;">평생무료 시작하기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="comp-footer">
@@ -120,13 +184,13 @@
                         ©PetEasy Co. Ltd. All rights reserved
                     </div>
                 </div>
-                
+
                 <div class="footer-btn">
                     <a href="javascript:;">
                         <img src="img/stores/ic_footer_logo.png" alt="">
                     </a>
                 </div>
-                
+
                 <div class="footer-btn-up">
                     <a href="javascript:;">
                         <img src="img/stores/btn_up.png" alt="">
