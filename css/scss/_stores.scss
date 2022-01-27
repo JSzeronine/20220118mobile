@@ -134,6 +134,7 @@
             .content-info__input-bx{
               margin-top: 46px;
               .comp-input{
+                padding-bottom: 0;
                 p{
                   font-size: 16px;
                 }
@@ -420,3 +421,313 @@
   }
 }
 
+.m-br{ display: none; }
+
+@media only screen and (max-width: 1000px ) {
+  .m-br{
+    display: block;
+  }
+
+  .stores{
+    .comp-header{
+      .header-bx{
+        width: 360px;
+        padding: 14px 0;
+        .header-back{
+          a{
+          }
+        }
+
+        .header-title{
+          font-size: 18px;
+        }
+
+        .header-home{
+          a{
+          }
+        }
+      }
+    }
+
+    .comp-content{
+      padding: 40px 0 70px;
+      .content-bx{
+        width: 360px;
+        padding: 0 20px;
+        .content-header{
+          align-items: flex-end;
+          margin-bottom: 30px;
+          .content-logo{
+            img{
+              width: 96px;
+            }
+          }
+
+          .content-list{
+            ul{
+              li{
+
+                &.on-line{
+                  &:after{
+                  }
+                }
+
+                &.on{
+                  > span{
+                    > span{
+                    }
+                  }
+                }
+
+                &:after{
+                  width: 25px;
+                }
+
+                &:last-child{
+                  &:after{
+                  }
+                }
+
+                > span{
+                  width: 27px;
+                  height: 27px;
+                  > span{
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .content-info{
+          .content-info-bx{
+            min-height: 0;
+            padding-top: 20px;
+            padding-bottom: 0;
+            box-sizing: border-box;
+            &.p-b-10{
+              padding-bottom: 0;
+            }
+
+            .content-info-app{
+              padding: 141px 20px 61px;
+              margin-bottom: 0;
+              .content-info__input-bx{
+                margin-top: 40px;
+                .comp-input{
+                  p{
+                  }
+                }
+              }
+
+              .app-info{
+                position: inherit;
+                h2{
+                  font-size: 20px;
+                }
+                p{
+                  font-size: 16px;
+                }
+
+                img{
+                  width: 120px;
+                  left: 100px;
+                  top: 23px;
+                }
+              }
+
+              .app-download{
+                ul{
+                  display: block;
+                  li{
+                    margin-bottom: 10px;
+
+                    &:last-child{
+                      margin-bottom: 0;
+                    }
+
+                    a{
+                      width: 100%;
+                      height: 48px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      padding: 0;
+
+                      img{
+                        width: 21px;
+                      }
+
+                      span{
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .content-info__input-bx{
+                .comp-input{
+                  > p{
+                    margin-bottom: 17px;
+                  }
+                }
+              }
+            }
+
+            .content-info__header-emoji{
+              img{
+              }
+            }
+
+            .content-info__header-txt{
+              margin-top: 12px;
+              margin-bottom: 15px;
+              font-size: 16px;
+              &.m-b-52{
+              }
+            }
+
+            .content-info__block-bx{
+              padding: 0 20px 40px;
+              &.hide{
+              }
+
+              h3{
+              }
+
+              .content-info__block{
+                padding: 22px 20px 40px;
+              }
+
+              .content-info__input-bx{
+
+                &:last-child{
+                }
+
+                .comp-input{
+                  padding-bottom: 0;
+                  > p{
+                  }
+
+                  a{
+                  }
+                }
+              }
+            }
+
+            .content-info__input-bx{
+              padding: 0 20px 0px;
+
+              &.inline-type{
+                padding-bottom: 0;
+              }
+
+              &.no-p{
+              }
+
+              &.hide{
+              }
+
+              .comp-input__inline-bx{
+                display: block;
+                .comp-input{
+                  padding-bottom: 40px;
+                  &:last-child{
+                    .comp-input__default{
+                      .comp-input-bx{
+                      }
+                    }
+                  }
+
+                  .comp-input__default{
+                    .comp-input-bx{
+                    }
+                  }
+                }
+              }
+
+              .comp-input{
+                padding-bottom: 40px;
+                > p{
+                }
+
+
+                .content-info__block-bx{
+                }
+
+                .comp-input__default{
+                  //display: block;
+                  &.comp-input__default-on{
+                    a{
+                    }
+                  }
+
+
+                  &.comp-input__default--email-type{
+                    display: block;
+                    .comp-input-bx{
+                      border-bottom: none;
+                      position: relative;
+
+                      input{
+                        border-bottom: 1px solid #ebebeb;
+                        margin-bottom: 10px;
+                      }
+
+                      span{
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                      }
+                    }
+                  }
+
+                  .comp-input-bx{
+                    display: block;
+                    &.comp-input-bx--small{
+                    }
+
+                    >span{
+                    }
+
+                    input{
+                      &::placeholder{
+                      }
+                    }
+                  }
+
+                  select{
+                    width: 100%;
+                  }
+
+                  a{
+                    width: 82px;
+                    height: 45px;
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+
+            .content-info__btn{
+              position: relative;
+              height: 60px;
+              margin-top: 0;
+              a{
+              }
+            }
+          }
+        }
+
+        .content-info__join{
+          .content-info__join-bx{
+            a{
+            }
+          }
+        }
+      }
+    }
+  }
+}

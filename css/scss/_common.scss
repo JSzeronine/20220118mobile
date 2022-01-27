@@ -128,3 +128,72 @@
     }
   }
 }
+
+
+@media only screen and (max-width: 1000px ) {
+  .comp-footer{
+    .footer-bx{
+      width: 360px;
+      padding: 50px 20px;
+
+      h2{
+      }
+
+      .footer-ceo{
+      }
+
+      .footer-address{
+        display: block;
+        margin-bottom: 12px;
+        .footer-address__info0{
+          margin-right:0;
+          p{
+            a{
+            }
+          }
+        }
+
+        .footer-address__info1{
+          margin-top: 12px;
+          p{
+            a{
+            }
+          }
+        }
+      }
+
+      .footer-info{
+        display: block;
+        .footer-info__link{
+          margin-right: 0px;
+          margin-bottom: 20px;
+          a{
+            &:after{
+            }
+
+            &:last-child{
+              &:after{
+              }
+            }
+          }
+        }
+
+        .footer-info__ltd{
+        }
+      }
+
+      .footer-btn{
+        display: none;
+        a{
+        }
+      }
+
+      .footer-btn-up{
+        a{
+          right: 20px;
+        }
+      }
+    }
+  }
+
+}
