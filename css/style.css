@@ -510,14 +510,14 @@
   width: 1030px;
   margin: 0 auto;
 }
-.introduce .more-content .more-bx .more-list:last-child .more-list-bx {
-  margin-bottom: 0;
-}
 .introduce .more-content .more-bx .more-list .more-list-bx {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 200px;
+}
+.introduce .more-content .more-bx .more-list .more-list-bx:last-child {
+  margin-bottom: 0;
 }
 .introduce .more-content .more-bx .more-list .more-list-bx.reverse {
   flex-direction: row-reverse;
@@ -620,6 +620,120 @@
   color: #9f9f9f;
 }
 
+@media only screen and (max-width: 1000px) {
+  .introduce .comp-header .header-bx {
+    width: 360px;
+    height: 52px;
+    margin: 0 auto;
+  }
+  .introduce .comp-header .header-bx .logo a {
+    width: 116px;
+  }
+  .introduce .comp-header .header-bx .comp-btn__default a {
+    font-size: 10px;
+    padding: 6px 11px;
+  }
+  .introduce .more-content {
+    padding-top: 51px;
+  }
+  .introduce .more-content .more-bx {
+    padding-top: 40px;
+    padding-bottom: 120px;
+  }
+  .introduce .more-content .more-bx .intro-bx {
+    width: 360px;
+    margin-bottom: 0;
+  }
+  .introduce .more-content .more-bx .intro-bx p {
+    margin-bottom: 20px;
+  }
+  .introduce .more-content .more-bx .intro-bx p img {
+    width: 58px;
+  }
+  .introduce .more-content .more-bx .intro-bx h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .introduce .more-content .more-bx .more-list {
+    width: 360px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx {
+    display: block;
+    margin-bottom: 40px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx.reverse .more-list__info {
+    padding-left: 0;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__info {
+    width: 100%;
+    padding-top: 80px;
+    text-align: center;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__info h3 {
+    font-size: 18px;
+    padding: 10px 20px 11px;
+    border-right: 22px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__info dl {
+    margin-bottom: 30px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__info dl dt {
+    font-size: 20px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__info dl dd {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__phone {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .introduce .more-content .more-bx .more-list .more-list-bx .more-list__phone ul li {
+    width: 152px;
+    border-radius: 15px;
+  }
+  .introduce .more-content .more-begin {
+    padding: 20px 20px 69px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx {
+    width: 360px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx p {
+    margin-bottom: 20px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx p img {
+    width: 92px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx dl {
+    margin-bottom: 20px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx dl dt {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .introduce .more-content .more-begin .more-begin-bx dl dd {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .introduce .more-content .more-begin .more-begin-input {
+    width: 360px;
+    margin: 0 auto;
+  }
+  .introduce .more-content .more-begin .more-begin-input .input-default {
+    display: block;
+    width: 100%;
+  }
+  .introduce .more-content .more-begin .more-begin-input .input-default input {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .introduce .more-content .more-begin .more-begin-input .input-default a {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+  }
+}
 .stores .comp-header {
   border-bottom: 1px solid #e5e5e5;
 }
