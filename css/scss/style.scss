@@ -1,9 +1,15 @@
 
 
-*{
-  font-size: 10px;
-  opacity: 0.5;
+@import "function";
+@import "common";
+@import "introduce";
+@import "stores";
+@import "frame";
+
+.wrap{
+
 }
+
 
 
 

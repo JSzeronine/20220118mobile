@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
+@function pxtovw480( $value, $w : 480 ){
+  @return ( $value / $w ) * 100vw;
+}

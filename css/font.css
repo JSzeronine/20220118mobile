@@ -1,52 +1,52 @@
 @charset "utf-8";
 
-@font-face {
-    font-family: 'YDVBlackFit';
-    font-style: normal;
-    font-weight: 300;
-    src: url(../fonts/YDVBlackFit55.woff) format('woff'),
-    url(../fonts/YDVBlackFit55.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'YDVBlackFit';*/
+/*    font-style: normal;*/
+/*    font-weight: 300;*/
+/*    src: url(../fonts/YDVBlackFit55.woff) format('woff'),*/
+/*    url(../fonts/YDVBlackFit55.otf) format('opentype');*/
+/*}*/
 
-@font-face {
-    font-family: 'YDVBlackFit';
-    font-style: normal;
-    font-weight: 400;
-    src: url(../fonts/YDVBlackFit66.woff) format('woff'),
-    url(../fonts/YDVBlackFit66.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'YDVBlackFit';*/
+/*    font-style: normal;*/
+/*    font-weight: 400;*/
+/*    src: url(../fonts/YDVBlackFit66.woff) format('woff'),*/
+/*    url(../fonts/YDVBlackFit66.otf) format('opentype');*/
+/*}*/
 
-@font-face {
-    font-family: 'YDVBlackFit';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../fonts/YDVBlackFit77.woff) format('woff'),
-    url(../fonts/YDVBlackFit77.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'YDVBlackFit';*/
+/*    font-style: normal;*/
+/*    font-weight: 700;*/
+/*    src: url(../fonts/YDVBlackFit77.woff) format('woff'),*/
+/*    url(../fonts/YDVBlackFit77.otf) format('opentype');*/
+/*}*/
 
-@font-face {
-    font-family: 'F-Bold';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../fonts/FrutigerLTStd-Bold.woff) format('woff'),
-    url(../fonts/FrutigerLTStd-Bold.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'F-Bold';*/
+/*    font-style: normal;*/
+/*    font-weight: 700;*/
+/*    src: url(../fonts/FrutigerLTStd-Bold.woff) format('woff'),*/
+/*    url(../fonts/FrutigerLTStd-Bold.otf) format('opentype');*/
+/*}*/
 
-@font-face {
-    font-family: 'F-Roman';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../fonts/FrutigerLTStd-Roman.woff) format('woff'),
-    url(../fonts/FrutigerLTStd-Roman.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'F-Roman';*/
+/*    font-style: normal;*/
+/*    font-weight: 700;*/
+/*    src: url(../fonts/FrutigerLTStd-Roman.woff) format('woff'),*/
+/*    url(../fonts/FrutigerLTStd-Roman.otf) format('opentype');*/
+/*}*/
 
-@font-face {
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../fonts/HelveticaNeue-Regular.woff) format('woff'),
-    url(../fonts/HelveticaNeue-Regular.otf) format('opentype');
-}
+/*@font-face {*/
+/*    font-family: 'Helvetica';*/
+/*    font-style: normal;*/
+/*    font-weight: 700;*/
+/*    src: url(../fonts/HelveticaNeue-Regular.woff) format('woff'),*/
+/*    url(../fonts/HelveticaNeue-Regular.otf) format('opentype');*/
+/*}*/
 
 @font-face {
     font-family: 'NotoSans';
