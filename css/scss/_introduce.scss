@@ -1066,8 +1066,11 @@
 
       .more-begin{
         padding: 20px 20px 69px;
+        width: 360px;
+        margin: 0 auto;
         .more-begin-bx{
-          width: 360px;
+          width: auto;
+
           p{
             margin-bottom: 20px;
             img{
@@ -1090,7 +1093,6 @@
         }
 
         .more-begin-input{
-          width: 360px;
           margin: 0 auto;
           .input-default{
             display: block;
