@@ -46,7 +46,6 @@
     <script>
         $( document ).ready( function(){
             var swiper = new Swiper(".visual-swiper", {
-                loop : true,
                 autoplay: {
                     delay: 2500,
                 }
@@ -54,17 +53,73 @@
 
             var replySwiper = new Swiper( ".section-reply-swiper", {
                 slidesPerView: 3,
+                slidesPerGroup: 3,
                 spaceBetween: 30,
                 pagination: {
                     el: ".reply-pagination",
                     clickable: true,
                 },
+                breakpoints: {
+                    1200: {
+                        slidesPerView: "auto",
+                        slidesPerGroup: 1,
+                        centeredSlides: true,
+                        spaceBetween: 11,
+                    },
+                },
             });
 
             var replySwiper = new Swiper( ".skill-content-swiper", {
+
+                on: {
+                    slideChange: function ( $e ) {
+                        showSkillsBtn( this.realIndex );
+                    }
+                }
+
             });
 
-        })
+            var _btnBx = $( ".skill-bts" );
+            var _btns = _btnBx.find( "li" );
+
+            function skillBtnClick( $e ){
+                var index = $( this ).index();
+
+                if( index === _btns.length - 1 ){
+                    return;
+                }
+
+                showSkillsBtn( index );
+                showSkillsSwiper( index );
+            }
+
+            function showSkillsBtn( $index ){
+                var btn = $( _btns[ $index ]);
+                _btns.removeClass( "on" );
+                btn.addClass( "on" );
+
+                TweenMax.to( _btnBx, 0.25, { scrollLeft : btn.position().left });
+            }
+
+            function showSkillsSwiper( $index ){
+                replySwiper.slideTo( $index );
+            }
+
+            _btns.on( "click", skillBtnClick );
+
+            function showCount( $count ){
+                var obj = {
+                    count : 0
+                };
+
+                TweenMax.to( obj, 2, { delay:0.5, count: $count, ease:Cubic.easeOut, onUpdate: function(){
+                    var val = parseInt( obj.count );
+                    $( ".shop-count" ).text( String( val ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                }});
+            }
+
+            showCount( 1242 );
+        });
     </script>
 </head>
 <body>
@@ -107,7 +162,7 @@
                     <div class="shop">
                         <img src="./img/introduce/ic_dog00.png" alt="">
                         <div class="shop-count-bx">
-                            <div class="shop-count">1,242</div>
+                            <div class="shop-count">0</div>
                             <dl>
                                 <dt>샵 입점</dt>
                                 <dd>(21년 11월 기준)</dd>
@@ -123,7 +178,9 @@
                         <div class="swiper visual-swiper">
                             <ul class="swiper-wrapper">
                                 <li class="swiper-slide"><img src="./img/introduce/img_phone00.png" alt=""></li>
-                                <li class="swiper-slide"><img src="./img/introduce/img_phone00.png" alt=""></li>
+                                <li class="swiper-slide"><img src="./img/introduce/img_phone01.png" alt=""></li>
+                                <li class="swiper-slide"><img src="./img/introduce/img_phone02.png" alt=""></li>
+                                <li class="swiper-slide"><img src="./img/introduce/img_phone03.png" alt=""></li>
                             </ul>
                         </div>
                         <img class="comp-visual__motion-bottom" src="./img/introduce/img_header_phone_bottom.png" alt="">
@@ -242,7 +299,7 @@
 
                             <div class="skill-bts">
                                 <ul>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">평생무료 시작하기</a></div></li>
+                                    <li class="on"><div class="skill-btn-bx"><a href="javascript:;">평생무료 시작하기</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">전자미용 동의서</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">자동 알림</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">판매 통계</a></div></li>
@@ -257,51 +314,54 @@
                                     <ul class="swiper-wrapper">
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_00.png" alt="">
+                                                <img src="./img/introduce/img_skills_01.png" alt="">
                                             </div>
 
                                             <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
                                         </li>
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_10.png" alt="">
+                                                <img src="./img/introduce/img_skills_11.png" alt="">
                                             </div>
 
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            <p>예약접수/변경/하루 전 등 다양한 자동알림</p>
                                         </li>
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_20.png" alt="">
+                                                <img src="./img/introduce/img_skills_21.png" alt="">
                                             </div>
 
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            <p>
+                                                동의서 종이출력 그만!<br>
+                                                전자미용 동의서로 효율적이고 엣지있게
+                                            </p>
                                         </li>
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_30.png" alt="">
+                                                <img src="./img/introduce/img_skills_31.png" alt="">
                                             </div>
 
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            <p>한눈에 보이는 판매통계로 실적도 체계적으로</p>
                                         </li>
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_40.png" alt="">
+                                                <img src="./img/introduce/img_skills_41.png" alt="">
                                             </div>
 
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            <p>정액권, 월관리도 헷갈리거나 오해 없도록</p>
                                         </li>
                                         <li class="swiper-slide">
                                             <div>
-                                                <img src="./img/introduce/img_phone00.png" alt="">
-                                                <img src="./img/introduce/img_phone01.png" alt="">
+                                                <img src="./img/introduce/img_skills_50.png" alt="">
+                                                <img src="./img/introduce/img_skills_51.png" alt="">
                                             </div>
 
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            <p>유치원/놀이방, 호텔관리도 반짝은 가능</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -355,7 +415,8 @@
                         <div class="download-bubble">
                             <div class="download-bubble-message">
                                 <span>사장님 샵의 성공을 위해 반짝이 함께 합니다.</span>
-                                <img src="./img/introduce/img_message_bubble.png" alt="">
+                                <img class="img_pc_bubble" src="./img/introduce/img_message_bubble.png" alt="">
+                                <img class="img_mobile_bubble" src="./img/introduce/img_message_bubble_mobile.png" alt="">
                             </div>
                             <div class="download-bubble-img">
                                 <img src="./img/introduce/ic_dog01.png" alt="">
@@ -429,5 +490,6 @@
         </div>
     </div>
 
+    <script src="js/App.js"></script>
 </body>
 </html>
