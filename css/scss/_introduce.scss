@@ -119,6 +119,21 @@
             bottom: 0;
             width: 307px;
             z-index: 100;
+            img{
+              position: absolute;
+              width: 100%;
+              left: 0;
+              top: 0;
+              opacity: 0;
+
+              &:first-child{
+                position: relative;
+              }
+
+              &.on{
+                opacity: 1;
+              }
+            }
           }
 
           .visual-swiper{
@@ -551,6 +566,67 @@
                 border-radius: 30px;
                 box-shadow: 4px 8px 38px 0 rgba(0, 0, 0, 0.21);
                 overflow: hidden;
+
+                &.img-bx{
+                  border-radius: 0;
+                  box-shadow: none;
+                  overflow: initial;
+
+                  img{
+                    border-radius: 30px;
+                    box-shadow: 4px 8px 38px 0 rgba(0, 0, 0, 0.21);
+                    &:first-child{
+                      margin-bottom: 20px;
+                    }
+                  }
+                }
+
+                &.more-scroll-bx{
+                  height: 586px;
+                  position: relative;
+
+                  .more-scroll-top{
+                    position: relative;
+                    z-index: 1;
+                  }
+
+                  .more-scroll-content{
+                    position: relative;
+                    .more-scroll-content-1{
+                      position: relative;
+                    }
+
+                    .more-scroll-content-2{
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      transform: translateX( 100% );
+                    }
+                  }
+
+                  .more-scroll-bottom{
+                    position: absolute;
+                    bottom: 0;
+
+                    .more-scroll-btn{
+                      position: relative;
+                      opacity: 1;
+                      display: block;
+                      width: 100%;
+                      > span{
+                        width: 50px;
+                        height:50px;
+                        background-color: #fdd94e;
+                        opacity: 0.75;
+                        position: absolute;
+                        right: 50px;
+                        top: 2px;
+                        border-radius: 100%;
+                      }
+                    }
+                  }
+                }
+
                 img{
                 }
               }
@@ -760,6 +836,10 @@
           width: 360px;
           padding-top: 50px;
 
+          &.section-reply-bx{
+            width: 100%;
+          }
+
           .comp-section-header{
 
             > img{
@@ -777,6 +857,7 @@
         .section-reply{
           margin-top: 40px;
           .section-reply-swiper{
+            width: 100%;
             padding-bottom: 20px;
             margin-bottom: 20px;
             ul{
@@ -1057,6 +1138,55 @@
                 li{
                   width: 152px;
                   border-radius: 15px;
+
+                  &.img-bx{
+                    border-radius: 0;
+                    box-shadow: none;
+                    overflow: initial;
+
+                    img{
+                      border-radius: 15px;
+                      box-shadow: 4px 8px 38px 0 rgba(0, 0, 0, 0.21);
+                      &:first-child{
+                        margin-bottom: 12px;
+                      }
+
+                      &:last-child{
+                        position: relative;
+                        z-index: 10;
+                      }
+                    }
+                  }
+
+                  &.more-scroll-bx{
+                    height: 320px;
+
+                    .more-scroll-top{
+                    }
+
+                    .more-scroll-content{
+                      .more-scroll-content-1{
+                      }
+
+                      .more-scroll-content-2{
+                      }
+                    }
+
+                    .more-scroll-bottom{
+                      .more-scroll-btn{
+                        > span{
+                          width: 25px;
+                          height:25px;
+                          background-color: #fdd94e;
+                          opacity: 0.75;
+                          position: absolute;
+                          right: 29px;
+                          top: 2px;
+                          border-radius: 100%;
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

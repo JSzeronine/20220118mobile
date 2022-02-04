@@ -45,16 +45,86 @@
 
     <script>
         $( document ).ready( function(){
-            var replySwiper = new Swiper( ".visual-swiper", {
-                slidesPerView: 2,
-                spaceBetween: 30,
-                breakpoints: {
-                    1000: {
-                        slidesPerView: 2,  //브라우저가 768보다 클 때
-                        spaceBetween: 20,
-                    },
-                },
-            });
+            // var replySwiper = new Swiper( ".visual-swiper", {
+            //     slidesPerView: 2,
+            //     spaceBetween: 30,
+            //     breakpoints: {
+            //         1000: {
+            //             slidesPerView: 2,  //브라우저가 768보다 클 때
+            //             spaceBetween: 20,
+            //         },
+            //     },
+            // });
+
+
+            var moreContent1 = $( ".more-scroll-content-1" );
+            var moreContent2 = $( ".more-scroll-content-2" );
+
+            var moreBtnBx = $( ".more-scroll-btn" );
+            var moreBtn = moreBtnBx.find( "span" );
+
+
+            var fY = -1342 // -728
+            var lY = -2592; // -1415
+
+            var _wW = 0;
+            var _isMobile = false;
+            var _oldCheck = _isMobile;
+
+            function resizeListener( $e ){
+                _wW = $( window ).width();
+
+                if( _wW >= 1200 ){
+                    _isMobile = false;
+                }else{
+                    _isMobile = true;
+                }
+
+                if( _oldCheck != _isMobile ){
+                    showVisual();
+                }
+
+                _oldCheck = _isMobile;
+            }
+
+            $( window ).on( "resize", resizeListener );
+            resizeListener();
+
+            function showVisual(){
+
+                if( _isMobile ){
+                    fY = -728;
+                    lY = -1415;
+                }else{
+                    fY = -1342;
+                    lY = -2592;
+                }
+
+                TweenMax.killTweensOf( moreContent1 );
+                TweenMax.killTweensOf( moreContent2 );
+                TweenMax.killTweensOf( moreBtnBx );
+                TweenMax.killTweensOf( moreBtn );
+
+                TweenMax.set( moreContent1, { x:0, y:0 });
+                TweenMax.set( moreContent2, { x:"100%", y:0 });
+                TweenMax.set( moreBtnBx, { opacity:0 });
+                TweenMax.set( moreBtn, { scale: 0.5 });
+
+                TweenMax.to( moreContent1, 5, { y:fY, ease:Power0.easeInOut, onComplete:function(){
+
+                    TweenMax.to( moreContent1, 5, { y:lY, ease:Power0.easeInOut, delay:2, onComplete:function(){
+
+                            TweenMax.to( moreBtnBx, 0.5, { opacity: 1 });
+                            TweenMax.to( moreBtnBx, 0.5, { opacity: 0, delay:0.5 });
+                            TweenMax.to( moreBtn, 1, { scale :1, onComplete:function(){
+                                TweenMax.to( moreContent1, 0.5, { x:"-100%",ease:Cubic.easeInOut, });
+                                TweenMax.to( moreContent2, 0.5, { x:0,ease:Cubic.easeInOut, });
+                            }});
+
+                    }});
+                }});
+            }
+
         });
     </script>
 </head>
@@ -97,12 +167,25 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="more-list__phone swiper visual-swiper">
-                            <ul class="swiper-wrapper">
-                                <li class="swiper-slide"><img src="./img/introduce/img_app_more00.png" alt=""></li>
-                                <li class="swiper-slide"><img src="./img/introduce/img_app_more01.png" alt=""></li>
-                                <li class="swiper-slide"><img src="./img/introduce/img_app_more02.png" alt=""></li>
-                                <li class="swiper-slide"><img src="./img/introduce/img_app_more03.png" alt=""></li>
+                        <div class="more-list__phone">
+                            <ul class="">
+                                <li><img src="./img/introduce/img_app_more00.png" alt=""></li>
+
+                                <li class="more-scroll-bx">
+                                    <div class="more-scroll-top">
+                                        <img src="./img/introduce/img_more_top.png" alt="">
+                                    </div>
+                                    <div class="more-scroll-content">
+                                        <img class="more-scroll-content-1" src="./img/introduce/img_more_content.png" alt="">
+                                        <img class="more-scroll-content-2" src="./img/introduce/img_more_last.png" alt="">
+                                    </div>
+                                    <div class="more-scroll-bottom">
+                                        <span class="more-scroll-btn">
+                                            <span></span>
+                                        </span>
+                                        <img src="./img/introduce/img_more_bottom.png" alt="">
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -120,8 +203,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more04.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more05.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more02.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more03.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -140,8 +223,14 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more06.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more07.png" alt=""></li>
+                                <li class="img-bx">
+                                    <img src="./img/introduce/img_app_more04.png" alt="">
+                                    <img src="./img/introduce/img_app_more04_01.png" alt="">
+                                </li>
+                                <li class="img-bx">
+                                    <img src="./img/introduce/img_app_more05.png" alt="">
+                                    <img src="./img/introduce/img_app_more05_01.png" alt="">
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -159,8 +248,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more08.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more09.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more06.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more07.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -179,8 +268,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more10.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more11.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more08.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more09.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -198,8 +287,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more12.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more13.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more10.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more11.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -220,8 +309,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more14.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more15.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more12.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more13.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -243,8 +332,8 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more16.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more17.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more14.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more15.png" alt=""></li>
                             </ul>
                         </div>
                     </div>
@@ -267,8 +356,11 @@
                         </div>
                         <div class="more-list__phone">
                             <ul>
-                                <li><img src="./img/introduce/img_app_more18.png" alt=""></li>
-                                <li><img src="./img/introduce/img_app_more19.png" alt=""></li>
+                                <li><img src="./img/introduce/img_app_more16.png" alt=""></li>
+                                <li class="img-bx">
+                                    <img src="./img/introduce/img_app_more17.png" alt="">
+                                    <img src="./img/introduce/img_app_more17_01.png" alt="">
+                                </li>
                             </ul>
                         </div>
                     </div>

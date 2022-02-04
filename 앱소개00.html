@@ -48,8 +48,22 @@
             var swiper = new Swiper(".visual-swiper", {
                 autoplay: {
                     delay: 2500,
+                },
+                on: {
+                    slideChange: function ( $e ) {
+                        showVisualNavi( this.realIndex );
+                    }
                 }
             });
+
+            var visualNaviList = $( ".comp-visual__motion-bottom" ).find( "img" );
+            function showVisualNavi( $index ){
+                visualNaviList.removeClass( "on" );
+
+                $( visualNaviList[ $index ]).addClass( "on" );
+            }
+
+            showVisualNavi( 0 );
 
             var replySwiper = new Swiper( ".section-reply-swiper", {
                 slidesPerView: 3,
@@ -183,7 +197,13 @@
                                 <li class="swiper-slide"><img src="./img/introduce/img_phone03.png" alt=""></li>
                             </ul>
                         </div>
-                        <img class="comp-visual__motion-bottom" src="./img/introduce/img_header_phone_bottom.png" alt="">
+                        <div class="comp-visual__motion-bottom">
+                            <img class="on" src="./img/introduce/img_header_phone_bottom.png" alt="">
+                            <img src="./img/introduce/img_header_phone_bottom01.png" alt="">
+                            <img src="./img/introduce/img_header_phone_bottom02.png" alt="">
+                            <img src="./img/introduce/img_header_phone_bottom03.png" alt="">
+                        </div>
+
                     </div>
 
                     <img class="comp-visual__motion-bg" src="./img/introduce/img_header_phone_bg.png" alt="">
@@ -199,7 +219,7 @@
             <div class="comp-content-bx no-border" style="background-image: url('./img/introduce/bg.jpg')">
 
 
-                <div class="comp-section">
+                <div class="comp-section section-reply-bx">
                     <div class="comp-section-header js-move-obj" data-trans-props="opacity,y" data-trans-value="0, 50">
                         <img src="./img/introduce/ic_00.png" alt="">
                         <h2>
@@ -301,9 +321,9 @@
 
                             <div class="skill-bts">
                                 <ul>
-                                    <li class="on"><div class="skill-btn-bx"><a href="javascript:;">평생무료 시작하기</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">전자미용 동의서</a></div></li>
+                                    <li class="on"><div class="skill-btn-bx"><a href="javascript:;">예약접수 고객관리</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">자동 알림</a></div></li>
+                                    <li><div class="skill-btn-bx"><a href="javascript:;">전자미용 동의서</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">판매 통계</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">정액권, 월관리</a></div></li>
                                     <li><div class="skill-btn-bx"><a href="javascript:;">유치원, 호텔관리</a></div></li>
