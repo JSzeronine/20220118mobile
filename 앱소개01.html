@@ -95,21 +95,24 @@
                 TweenMax.set( moreBtnBx, { opacity:0 });
                 TweenMax.set( moreBtn, { scale: 0.5 });
 
-                TweenMax.to( moreContent1, 5, { y:fY, ease:Power0.easeInOut, onComplete:function(){
+                TweenMax.to( moreContent1, 10, { y:fY, ease:Power0.easeInOut, onComplete:function(){
 
-                    TweenMax.to( moreContent1, 5, { y:lY, ease:Power0.easeInOut, delay:2, onComplete:function(){
+                    TweenMax.to( moreContent1, 10, { y:lY, ease:Power0.easeInOut, delay:2, onComplete:function(){
 
                             TweenMax.to( moreBtnBx, 0.5, { opacity: 1 });
                             TweenMax.to( moreBtnBx, 0.5, { opacity: 0, delay:0.5 });
                             TweenMax.to( moreBtn, 1, { scale :1, onComplete:function(){
                                 TweenMax.to( moreContent1, 0.5, { x:"-100%",ease:Cubic.easeInOut, });
-                                TweenMax.to( moreContent2, 0.5, { x:0,ease:Cubic.easeInOut, });
+                                TweenMax.to( moreContent2, 0.5, { x:0,ease:Cubic.easeInOut, onComplete:function(){
+                                    setTimeout( function(){
+                                        showVisual();
+                                    }, 5000 );
+                                }});
                             }});
 
                     }});
                 }});
             }
-
         });
     </script>
 </head>
