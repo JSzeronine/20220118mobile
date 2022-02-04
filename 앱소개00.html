@@ -31,7 +31,6 @@
     <!-- END Icons -->
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -40,8 +39,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
     <script src="js/lib/gsap.min.js"></script>
     <script src="js/lib/jquery-1.11.2.min.js"></script>
-    <script src="js/lib/swiper.min.js"></script>
     <script src="js/lib/intersection-observer.js"></script>
+<!--    <script src="js/lib/swiper.min.js"></script>-->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script>
         $( document ).ready( function(){
@@ -65,20 +65,22 @@
 
             showVisualNavi( 0 );
 
-            var replySwiper = new Swiper( ".section-reply-swiper", {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-                spaceBetween: 30,
+            var replyListSwiper = new Swiper( ".section-reply-swiper", {
+                slidesPerView: "auto",
+                slidesPerGroup: 1,
+                spaceBetween: 11,
+                centeredSlides: true,
                 pagination: {
                     el: ".reply-pagination",
                     clickable: true,
                 },
+
                 breakpoints: {
                     1200: {
-                        slidesPerView: "auto",
-                        slidesPerGroup: 1,
-                        centeredSlides: true,
-                        spaceBetween: 11,
+                        centeredSlides: false,
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        slidesPerGroup: 3,
                     },
                 },
             });
@@ -90,11 +92,60 @@
                         showSkillsBtn( this.realIndex );
                     }
                 }
-
             });
 
             var _btnBx = $( ".skill-bts" );
             var _btns = _btnBx.find( "li" );
+
+            var w = $( window );
+
+            var isMobile = null;
+            var oldMobile = isMobile;
+
+            var replyBtnSwiper = new Swiper( ".skill-bts", {
+                slidesPerView: "auto",
+                spaceBetween: 10,
+                centeredSlides: "center",
+                // on: {
+                //     slideChange: function ( $e ) {
+                //         showSkillsBtn( this.realIndex );
+                //         showSkillsSwiper( this.realIndex );
+                //     }
+                // }
+            });
+
+            function checkSkillBtns(){
+                if( isMobile ){
+                    replyBtnSwiper.enable();
+
+                    showSkillsBtn( 0 );
+                    showSkillsSwiper( 0 );
+                }else{
+                    replyBtnSwiper.disable();
+                    TweenMax.to( _btnBx.find( "ul" ), 0.1, { x : 0 });
+                }
+
+                replyBtnSwiper.update();
+            }
+
+            function resizeListener( $e ){
+                if( w.width() >= 1200 ){
+                    isMobile = false;
+                }else{
+                    isMobile = true;
+                }
+
+                if( isMobile != oldMobile ){
+                    checkSkillBtns();
+                }
+
+                oldMobile = isMobile;
+            }
+
+            w.on( "resize", resizeListener );
+            resizeListener();
+
+            _btnBx.find( "ul" ).removeClass( "swiper-wrapper" );
 
             function skillBtnClick( $e ){
                 var index = $( this ).index();
@@ -112,7 +163,9 @@
                 _btns.removeClass( "on" );
                 btn.addClass( "on" );
 
-                TweenMax.to( _btnBx, 0.25, { scrollLeft : btn.position().left });
+                replyBtnSwiper.slideTo( $index );
+
+                // TweenMax.to( _btnBx, 0.25, { scrollLeft : btn.position().left });
             }
 
             function showSkillsSwiper( $index ){
@@ -307,7 +360,7 @@
             </div>
 
             <div class="comp-content-bx">
-                <div class="comp-section">
+                <div class="comp-section section-skills-bx">
                     <div class="comp-section-header js-move-obj" data-trans-props="opacity,y" data-trans-value="0, 50">
                         <img src="./img/introduce/ic_01.png" alt="">
                         <h2>
@@ -319,15 +372,44 @@
                     <div class="section-skill">
                         <div class="section-skill-bx">
 
-                            <div class="skill-bts">
-                                <ul>
-                                    <li class="on"><div class="skill-btn-bx"><a href="javascript:;">예약접수 고객관리</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">자동 알림</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">전자미용 동의서</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">판매 통계</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">정액권, 월관리</a></div></li>
-                                    <li><div class="skill-btn-bx"><a href="javascript:;">유치원, 호텔관리</a></div></li>
-                                    <li><div class="skill-btn-bx"><a style="border-color: #d7d7d7;" href="javascript:;">더보기 +</a></div></li>
+                            <div class="swiper skill-bts">
+                                <ul class="swiper-wrapper">
+                                    <li class="on swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">예약접수 고객관리</span>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">자동 알림</span>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">전자미용 동의서</span>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">판매 통계</span>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">정액권, 월관리</span>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span href="javascript:;">유치원, 호텔관리</span>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="skill-btn-bx">
+                                            <span style="border-color: #d7d7d7;" href="javascript:;">더보기 +</span>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -345,7 +427,11 @@
                                         <li class="swiper-slide">
                                             <div>
                                                 <img src="./img/introduce/img_skills_10.png" alt="">
-                                                <img src="./img/introduce/img_skills_11.png" alt="">
+                                                <div class="img-bx">
+                                                    <img src="./img/introduce/img_skills_11.png" alt="">
+                                                    <img src="./img/introduce/img_skills_11_01.png" alt="">
+                                                </div>
+
                                             </div>
 
                                             <p>예약접수/변경/하루 전 등 다양한 자동알림</p>

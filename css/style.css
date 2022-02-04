@@ -376,6 +376,7 @@
   bottom: 25px;
 }
 .introduce .comp-content .comp-content-bx .section-reply .swiper-pagination {
+  position: relative !important;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -405,14 +406,15 @@
   flex-shrink: 0;
 }
 .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li {
+  cursor: pointer;
   margin-bottom: 20px;
 }
-.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li.on .skill-btn-bx a {
+.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li.on .skill-btn-bx span {
   background-color: #6840b1;
   border: solid 1px #6840b1;
   color: #fff;
 }
-.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li .skill-btn-bx a {
+.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li .skill-btn-bx span {
   display: inline-block;
   padding: 13px 30px 12px;
   border-radius: 22.5px;
@@ -427,6 +429,13 @@
 }
 .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div {
   font-size: 0;
+}
+.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div .img-bx {
+  display: inline-block;
+  width: 277px;
+}
+.introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div .img-bx img:first-child {
+  margin-bottom: 20px;
 }
 .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div img {
   position: relative;
@@ -816,6 +825,9 @@
   .introduce .comp-content .comp-content-bx .comp-section.section-reply-bx {
     width: 100%;
   }
+  .introduce .comp-content .comp-content-bx .comp-section.section-skills-bx {
+    width: 100%;
+  }
   .introduce .comp-content .comp-content-bx .comp-section .comp-section-header > img {
     width: 58px;
     margin-bottom: 19px;
@@ -866,7 +878,6 @@
   }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts {
     width: 100%;
-    overflow-x: auto;
     padding-left: 20px;
   }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul {
@@ -877,6 +888,7 @@
     position: relative;
   }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li {
+    width: auto;
     position: relative;
     flex-shrink: 0;
     margin-right: 5px;
@@ -884,13 +896,33 @@
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li:last-child {
     margin-right: 0;
   }
+  .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-bts ul li .skill-btn-bx {
+    position: relative;
+    top: 13px;
+  }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents {
-    width: 100%;
+    width: 360px;
+    margin: 0 auto;
   }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0;
+  }
+  .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div .img-bx {
+    position: relative;
+    display: inline-block;
+    width: 152px;
+    left: -20px;
+    top: 20px;
+  }
+  .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div .img-bx img {
+    left: 0 !important;
+    top: 0 !important;
+  }
+  .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div .img-bx img:first-child {
+    margin-bottom: 11px;
   }
   .introduce .comp-content .comp-content-bx .section-skill .section-skill-bx .skill-contents .skill-content-swiper ul li > div img {
     width: 152px;

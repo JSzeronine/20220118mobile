@@ -30,8 +30,6 @@
     <link rel="apple-touch-icon" href="./img/favicon/apple-icon-180x180.png" sizes="180x180">
     <!-- END Icons -->
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -40,23 +38,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
     <script src="js/lib/gsap.min.js"></script>
     <script src="js/lib/jquery-1.11.2.min.js"></script>
-    <script src="js/lib/swiper.min.js"></script>
     <script src="js/lib/intersection-observer.js"></script>
 
     <script>
         $( document ).ready( function(){
-            // var replySwiper = new Swiper( ".visual-swiper", {
-            //     slidesPerView: 2,
-            //     spaceBetween: 30,
-            //     breakpoints: {
-            //         1000: {
-            //             slidesPerView: 2,  //브라우저가 768보다 클 때
-            //             spaceBetween: 20,
-            //         },
-            //     },
-            // });
-
-
             var moreContent1 = $( ".more-scroll-content-1" );
             var moreContent2 = $( ".more-scroll-content-2" );
 
@@ -68,7 +53,7 @@
             var lY = -2592; // -1415
 
             var _wW = 0;
-            var _isMobile = false;
+            var _isMobile = null;
             var _oldCheck = _isMobile;
 
             function resizeListener( $e ){
