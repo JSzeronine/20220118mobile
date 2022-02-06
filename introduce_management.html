@@ -216,6 +216,13 @@
 
                     if( sT > ( oT - ( w.height() / 2 ))){
                         index = $index;
+
+                        $( this ).addClass( "on" );
+                    }else{
+                        if( $index !== 0 ){
+                            $( this ).removeClass( "on" );
+                        }
+
                     }
                 });
 
