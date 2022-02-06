@@ -316,19 +316,28 @@
               .skill-content-swiper{
                 ul{
                   li{
+                    img{
+                      transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+                      opacity: 0;
+                      transform: translateY( 50px );
+                    }
+
                     &.on{
-                      opacity: 1;
-                      transform: translateY( 0px );
+                      img{
+                        opacity: 1;
+                        transform: translateY( 0px );
+                        &:last-child{
+                          transition: opacity 0.35s ease-in-out 0.15s, transform 0.35s ease-in-out 0.15s;
+                        }
+                      }
                     }
 
-                    opacity: 0;
-                    transform: translateY( 50px );
                     &:first-child{
-                      opacity: 1;
-                      transform: translateY( 0px );
+                      img{
+                        opacity: 1;
+                        transform: translateY( 0px );
+                      }
                     }
-
-                    transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
 
                     margin-bottom: 140px;
                     &:last-child{
