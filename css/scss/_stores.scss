@@ -1,4 +1,8 @@
 .stores{
+  background-color: #f7f7f7;
+  position: relative;
+  min-height: 100vh;
+
   .comp-header{
     border-bottom: 1px solid #e5e5e5;
     .header-bx{
@@ -34,9 +38,20 @@
     }
   }
 
+  .comp-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #ffffff;
+    .footer-bx{
+
+    }
+  }
+
   .comp-content{
-    background-color: #f7f7f7;
-    padding: 50px 0 126px 0;
+    //padding: 50px 0 126px 0;
+    padding: 50px 0 330px 0;
+
     .content-bx{
       width: 996px;
       margin: 0 auto;
@@ -162,33 +177,36 @@
               }
             }
 
-            .app-download{
-              ul{
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                li{
-                  margin-right: 10px;
-                  a{
-                    display: inline-block;
-                    padding: 15px 23px 16px 24px;
-                    border-radius: 36.4px;
-                    border: solid 0.8px #202020;
+            .download-bx{
+              .app-download{
+                ul{
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  li{
+                    margin-right: 10px;
+                    a{
+                      display: inline-block;
+                      padding: 15px 23px 16px 24px;
+                      border-radius: 36.4px;
+                      border: solid 0.8px #202020;
 
-                    img{
-                      width: 27px;
-                      margin-right: 12px;
-                    }
+                      img{
+                        width: 27px;
+                        margin-right: 12px;
+                      }
 
-                    span{
-                      font-size: 18px;
-                      color: #202020;
-                      font-weight: 700;
+                      span{
+                        font-size: 18px;
+                        color: #202020;
+                        font-weight: 700;
+                      }
                     }
                   }
                 }
               }
             }
+
           }
 
           .content-info__header-emoji{
@@ -450,7 +468,8 @@
     }
 
     .comp-content{
-      padding: 40px 0 70px;
+      //padding: 40px 0 70px;
+      padding: 40px 0 378px;
       .content-bx{
         width: 360px;
         padding: 0 20px;
@@ -537,35 +556,38 @@
                 }
               }
 
-              .app-download{
-                ul{
-                  display: block;
-                  li{
-                    margin-bottom: 10px;
+              .download-bx{
+                .app-download{
+                  ul{
+                    display: block;
+                    li{
+                      margin-bottom: 10px;
 
-                    &:last-child{
-                      margin-bottom: 0;
-                    }
-
-                    a{
-                      width: 100%;
-                      height: 48px;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      padding: 0;
-
-                      img{
-                        width: 21px;
+                      &:last-child{
+                        margin-bottom: 0;
                       }
 
-                      span{
-                        font-size: 14px;
+                      a{
+                        width: 100%;
+                        height: 48px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0;
+
+                        img{
+                          width: 21px;
+                        }
+
+                        span{
+                          font-size: 14px;
+                        }
                       }
                     }
                   }
                 }
               }
+
 
               .content-info__input-bx{
                 display: none;

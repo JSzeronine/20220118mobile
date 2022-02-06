@@ -65,6 +65,15 @@
 
             showVisualNavi( 0 );
 
+
+
+
+
+
+
+
+
+
             var replyListSwiper = new Swiper( ".section-reply-swiper", {
                 slidesPerView: "auto",
                 slidesPerGroup: 1,
@@ -85,7 +94,7 @@
                 },
             });
 
-            var replySwiper = new Swiper( ".skill-content-swiper", {
+            var replySwiper = new Swiper( ".skill-content-swiper-mobile", {
 
                 on: {
                     slideChange: function ( $e ) {
@@ -94,7 +103,7 @@
                 }
             });
 
-            var _btnBx = $( ".skill-bts" );
+            var _btnBx = $( ".skill-bts-swiper" );
             var _btns = _btnBx.find( "li" );
 
             var w = $( window );
@@ -102,16 +111,10 @@
             var isMobile = null;
             var oldMobile = isMobile;
 
-            var replyBtnSwiper = new Swiper( ".skill-bts", {
+            var replyBtnSwiper = new Swiper( ".skill-bts-swiper", {
                 slidesPerView: "auto",
                 spaceBetween: 10,
                 centeredSlides: "center",
-                // on: {
-                //     slideChange: function ( $e ) {
-                //         showSkillsBtn( this.realIndex );
-                //         showSkillsSwiper( this.realIndex );
-                //     }
-                // }
             });
 
             function checkSkillBtns(){
@@ -186,6 +189,74 @@
             }
 
             showCount( 1242 );
+
+
+
+            var _skillsPc = $( ".skills-pc" );
+            var _skillContents = _skillsPc.find( ".skill-contents" ).find( "li" );
+            var _skillBtns = _skillsPc.find( ".skill-bts" ).find( "li" );
+            var _oldSkillBtnIndex = 0;
+
+            _skillBtns.on( "click", function( $e ){
+                var index = $( this ).index();
+
+                var oT = $( _skillContents[ index ]).offset().top;
+
+                TweenMax.to( $( "html, body" ), 0.5, { scrollTop : oT - 140, ease:Cubic.easeInOut });
+            });
+
+
+            var downloadBx = $( ".section-download" );
+            var downloadCount = downloadBx.find( ".download-count-span" );
+            var isDownloadCount = false;
+            var downloadCountValues = [ 342465, 52278 ];
+
+            function showDownloadCount(){
+                downloadCount.each( function( $index ){
+                    var item = $( this );
+                    var obj = {
+                        count : 0
+                    };
+
+                    TweenMax.to( obj, 2, { delay:0.5, count: downloadCountValues[ $index ], ease:Cubic.easeOut, onUpdate: function(){
+                        var val = parseInt( obj.count );
+                        item.text( String( val ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    }});
+                });
+            }
+
+            function scrollListener( $e ){
+                var sT = w.scrollTop();
+                var oT;
+                var index = 0;
+
+                _skillContents.each( function( $index ){
+                    oT = $( this ).offset().top;
+
+                    if( sT > ( oT - ( w.height() / 2 ))){
+                        index = $index;
+                    }
+                });
+
+                if( index != _oldSkillBtnIndex ){
+                    _skillBtns.removeClass( "on" );
+                    $( _skillBtns[ index ]).addClass( "on" );
+                }
+
+                _oldSkillBtnIndex = index;
+
+                // download count
+                if( sT > downloadBx.offset().top - ( w.height() ) ){
+                    if( isDownloadCount ) return;
+
+                    showDownloadCount();
+
+                    isDownloadCount = true;
+                }
+            }
+
+            w.on( "scroll", scrollListener );
+            scrollListener( null );
         });
     </script>
 </head>
@@ -361,117 +432,240 @@
 
             <div class="comp-content-bx">
                 <div class="comp-section section-skills-bx">
-                    <div class="comp-section-header js-move-obj" data-trans-props="opacity,y" data-trans-value="0, 50">
-                        <img src="./img/introduce/ic_01.png" alt="">
-                        <h2>
-                            애견 미용샵에<br>
-                            꼭 필요한 다양한 기능
-                        </h2>
-                    </div>
 
-                    <div class="section-skill">
-                        <div class="section-skill-bx">
+                    <!-- 애견 미용샵에 꼭 필요한 다양한 기능( PC 전용 화면 )-->
+                    <div class="skills-pc">
+                        <div class="comp-section-header js-move-obj" data-trans-props="opacity,y" data-trans-value="0, 50">
+                            <img src="./img/introduce/ic_01.png" alt="">
+                            <h2>
+                                애견 미용샵에<br>
+                                꼭 필요한 다양한 기능
+                            </h2>
+                        </div>
 
-                            <div class="swiper skill-bts">
-                                <ul class="swiper-wrapper">
-                                    <li class="on swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">예약접수 고객관리</span>
-                                        </div>
-                                    </li>
+                        <div class="section-skill section-skill-bx-pc">
+                            <div class="section-skill-bx">
 
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">자동 알림</span>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">전자미용 동의서</span>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">판매 통계</span>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">정액권, 월관리</span>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span href="javascript:;">유치원, 호텔관리</span>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="skill-btn-bx">
-                                            <span style="border-color: #d7d7d7;" href="javascript:;">더보기 +</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="skill-contents">
-                                <div class="swiper skill-content-swiper">
-                                    <ul class="swiper-wrapper">
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_00.png" alt="">
-                                                <img src="./img/introduce/img_skills_01.png" alt="">
+                                <div class="skill-bts">
+                                    <ul>
+                                        <li class="on">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">예약접수 고객관리</span>
                                             </div>
-
-                                            <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
                                         </li>
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_10.png" alt="">
-                                                <div class="img-bx">
-                                                    <img src="./img/introduce/img_skills_11.png" alt="">
-                                                    <img src="./img/introduce/img_skills_11_01.png" alt="">
-                                                </div>
 
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">자동 알림</span>
                                             </div>
-
-                                            <p>예약접수/변경/하루 전 등 다양한 자동알림</p>
                                         </li>
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_20.png" alt="">
-                                                <img src="./img/introduce/img_skills_21.png" alt="">
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">전자미용 동의서</span>
                                             </div>
-
-                                            <p>
-                                                동의서 종이출력 그만!<br>
-                                                전자미용 동의서로 효율적이고 엣지있게
-                                            </p>
                                         </li>
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_30.png" alt="">
-                                                <img src="./img/introduce/img_skills_31.png" alt="">
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">판매 통계</span>
                                             </div>
-
-                                            <p>한눈에 보이는 판매통계로 실적도 체계적으로</p>
                                         </li>
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_40.png" alt="">
-                                                <img src="./img/introduce/img_skills_41.png" alt="">
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">정액권, 월관리</span>
                                             </div>
-
-                                            <p>정액권, 월관리도 헷갈리거나 오해 없도록</p>
                                         </li>
-                                        <li class="swiper-slide">
-                                            <div>
-                                                <img src="./img/introduce/img_skills_50.png" alt="">
-                                                <img src="./img/introduce/img_skills_51.png" alt="">
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">유치원, 호텔관리</span>
                                             </div>
-
-                                            <p>유치원/놀이방, 호텔관리도 반짝은 가능</p>
+                                        </li>
+                                        <li class="">
+                                            <div class="skill-btn-bx">
+                                                <span style="border-color: #d7d7d7;" href="javascript:;">더보기 +</span>
+                                            </div>
                                         </li>
                                     </ul>
+                                </div>
+
+                                <div class="skill-contents">
+                                    <div class="skill-content-swiper">
+                                        <ul class="">
+                                            <li class="">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_00.png" alt="">
+                                                    <img src="./img/introduce/img_skills_01.png" alt="">
+                                                </div>
+
+                                                <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_10.png" alt="">
+                                                    <div class="img-bx">
+                                                        <img src="./img/introduce/img_skills_11.png" alt="">
+                                                        <img src="./img/introduce/img_skills_11_01.png" alt="">
+                                                    </div>
+
+                                                </div>
+
+                                                <p>예약접수/변경/하루 전 등 다양한 자동알림</p>
+                                            </li>
+                                            <li class="">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_20.png" alt="">
+                                                    <img src="./img/introduce/img_skills_21.png" alt="">
+                                                </div>
+
+                                                <p>
+                                                    동의서 종이출력 그만!<br>
+                                                    전자미용 동의서로 효율적이고 엣지있게
+                                                </p>
+                                            </li>
+                                            <li class="">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_30.png" alt="">
+                                                    <img src="./img/introduce/img_skills_31.png" alt="">
+                                                </div>
+
+                                                <p>한눈에 보이는 판매통계로 실적도 체계적으로</p>
+                                            </li>
+                                            <li class="">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_40.png" alt="">
+                                                    <img src="./img/introduce/img_skills_41.png" alt="">
+                                                </div>
+
+                                                <p>정액권, 월관리도 헷갈리거나 오해 없도록</p>
+                                            </li>
+                                            <li class="">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_50.png" alt="">
+                                                    <img src="./img/introduce/img_skills_51.png" alt="">
+                                                </div>
+
+                                                <p>유치원/놀이방, 호텔관리도 반짝은 가능</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 애견 미용샵에 꼭 필요한 다양한 기능( 모바일 전용 화면 )   -->
+                    <div class="skills-mobile">
+                        <div class="comp-section-header js-move-obj" data-trans-props="opacity,y" data-trans-value="0, 50">
+                            <img src="./img/introduce/ic_01.png" alt="">
+                            <h2>
+                                애견 미용샵에<br>
+                                꼭 필요한 다양한 기능
+                            </h2>
+                        </div>
+
+                        <div class="section-skill">
+                            <div class="section-skill-bx">
+
+                                <div class="swiper skill-bts skill-bts-swiper">
+                                    <ul class="swiper-wrapper">
+                                        <li class="on swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">예약접수 고객관리</span>
+                                            </div>
+                                        </li>
+
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">자동 알림</span>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">전자미용 동의서</span>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">판매 통계</span>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">정액권, 월관리</span>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span href="javascript:;">유치원, 호텔관리</span>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="skill-btn-bx">
+                                                <span style="border-color: #d7d7d7;" href="javascript:;">더보기 +</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="skill-contents">
+                                    <div class="swiper skill-content-swiper skill-content-swiper-mobile">
+                                        <ul class="swiper-wrapper">
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_00.png" alt="">
+                                                    <img src="./img/introduce/img_skills_01.png" alt="">
+                                                </div>
+
+                                                <p>간편한 예약접수/변경, 세세한 고객이력 관리</p>
+                                            </li>
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_10.png" alt="">
+                                                    <div class="img-bx">
+                                                        <img src="./img/introduce/img_skills_11.png" alt="">
+                                                        <img src="./img/introduce/img_skills_11_01.png" alt="">
+                                                    </div>
+
+                                                </div>
+
+                                                <p>예약접수/변경/하루 전 등 다양한 자동알림</p>
+                                            </li>
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_20.png" alt="">
+                                                    <img src="./img/introduce/img_skills_21.png" alt="">
+                                                </div>
+
+                                                <p>
+                                                    동의서 종이출력 그만!<br>
+                                                    전자미용 동의서로 효율적이고 엣지있게
+                                                </p>
+                                            </li>
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_30.png" alt="">
+                                                    <img src="./img/introduce/img_skills_31.png" alt="">
+                                                </div>
+
+                                                <p>한눈에 보이는 판매통계로 실적도 체계적으로</p>
+                                            </li>
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_40.png" alt="">
+                                                    <img src="./img/introduce/img_skills_41.png" alt="">
+                                                </div>
+
+                                                <p>정액권, 월관리도 헷갈리거나 오해 없도록</p>
+                                            </li>
+                                            <li class="swiper-slide">
+                                                <div>
+                                                    <img src="./img/introduce/img_skills_50.png" alt="">
+                                                    <img src="./img/introduce/img_skills_51.png" alt="">
+                                                </div>
+
+                                                <p>유치원/놀이방, 호텔관리도 반짝은 가능</p>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -510,12 +704,12 @@
 
                         <div class="download-count">
                             <dl>
-                                <dt>누적 예약 : <span>342,465</span> 건</dt>
+                                <dt>누적 예약 : <span class="download-count-span">0</span> 건</dt>
                                 <dd>(21년 12월 기준)</dd>
                             </dl>
 
                             <dl>
-                                <dt>앱 다운로드 : <span>52,278</span> 건</dt>
+                                <dt>앱 다운로드 : <span class="download-count-span">0</span> 건</dt>
                                 <dd>(21년 12월 기준)</dd>
                             </dl>
                         </div>
