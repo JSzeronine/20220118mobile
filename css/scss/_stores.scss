@@ -5,6 +5,7 @@
 
   .comp-header{
     border-bottom: 1px solid #e5e5e5;
+    background-color: #ffffff;
     .header-bx{
       width: 1200px;
       margin: 0 auto;
@@ -558,37 +559,37 @@
                 }
               }
 
-              .download-bx{
-                .app-download{
-                  ul{
-                    display: block;
-                    li{
-                      margin-bottom: 10px;
 
-                      &:last-child{
-                        margin-bottom: 0;
+              .app-download{
+                ul{
+                  display: block;
+                  li{
+                    margin-bottom: 10px;
+
+                    &:last-child{
+                      margin-bottom: 0;
+                    }
+
+                    a{
+                      width: 100%;
+                      height: 48px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      padding: 0;
+
+                      img{
+                        width: 21px;
                       }
 
-                      a{
-                        width: 100%;
-                        height: 48px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 0;
-
-                        img{
-                          width: 21px;
-                        }
-
-                        span{
-                          font-size: 14px;
-                        }
+                      span{
+                        font-size: 14px;
                       }
                     }
                   }
                 }
               }
+
 
 
               .content-info__input-bx{
