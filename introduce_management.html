@@ -28,7 +28,7 @@
         $( document ).ready( function(){
             var swiper = new Swiper(".visual-swiper", {
                 autoplay: {
-                    delay: 2000,
+                    delay:  ( 3000 / 4 ),
                 },
                 on: {
                     slideChange: function ( $e ) {
@@ -36,6 +36,7 @@
                     }
                 }
             });
+
 
             var visualNaviList = $( ".comp-visual__motion-bottom" ).find( "img" );
             function showVisualNavi( $index ){

@@ -37,6 +37,8 @@
             var _isMobile = null;
             var _oldCheck = _isMobile;
 
+            var _showVisualTimer = 0;
+
             function resizeListener( $e ){
                 _wW = $( window ).width();
 
@@ -47,7 +49,12 @@
                 }
 
                 if( _oldCheck != _isMobile ){
-                    showVisual();
+
+                    clearTimeout( _showVisualTimer );
+                    _showVisualTimer = setTimeout( function(){
+                        showVisual();
+                    }, 1000 );
+
                 }
 
                 _oldCheck = _isMobile;
@@ -76,24 +83,22 @@
                 TweenMax.set( moreBtnBx, { opacity:0 });
                 TweenMax.set( moreBtn, { scale: 0.5 });
 
+                TweenMax.to( moreContent1, 0.5, { y:fY, ease:Power0.easeInOut, onComplete:function(){
 
-                console.log( 39000000 - 27000000 - 6000000 + 2700000 );
+                    TweenMax.to( moreContent1, 0.5, { y:lY, ease:Power0.easeInOut, delay:1, onComplete:function(){
 
-                TweenMax.to( moreContent1, 2, { y:fY, ease:Power0.easeInOut, onComplete:function(){
+                        TweenMax.to( moreBtnBx, 0.5, { opacity: 1 });
+                        TweenMax.to( moreBtnBx, 0.5, { opacity: 0, delay:0.5 });
 
-                    TweenMax.to( moreContent1, 2, { y:lY, ease:Power0.easeInOut, delay:1, onComplete:function(){
+                        TweenMax.to( moreBtn, 1, { scale :1, onComplete:function(){
 
-                            TweenMax.to( moreBtnBx, 0.5, { opacity: 1 });
-                            TweenMax.to( moreBtnBx, 0.5, { opacity: 0, delay:0.5 });
-                            TweenMax.to( moreBtn, 1, { scale :1, onComplete:function(){
-                                TweenMax.to( moreContent1, 0.5, { x:"-100%",ease:Cubic.easeInOut, });
-                                TweenMax.to( moreContent2, 0.5, { x:0,ease:Cubic.easeInOut, onComplete:function(){
-                                    setTimeout( function(){
-                                        showVisual();
-                                    }, 5000 );
-                                }});
+                            TweenMax.to( moreContent1, 0.5, { x:"-100%",ease:Cubic.easeInOut, });
+                            TweenMax.to( moreContent2, 0.5, { x:0,ease:Cubic.easeInOut, onComplete:function(){
+                                setTimeout( function(){
+                                    showVisual();
+                                }, 1000 );
                             }});
-
+                        }});
                     }});
                 }});
             }
