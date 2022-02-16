@@ -2055,5 +2055,8 @@
     width: 100%;
   }
 }
+.wrap {
+  opacity: 0.1;
+}
 
 /*# sourceMappingURL=style.css.map */
